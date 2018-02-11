@@ -17,13 +17,26 @@ class Calculator {
 
     public function add($argomenti) {
         $result = null;
-        if (($argomenti == "")) {
+        if (($argomenti == '')) {
             $result = 0;
         }
         else {
-
+            preg_match_all('/(\d+)/', $argomenti, $found);
+            $result = $this->sommaArrayDiNumeri($found);
         }
         return $result;
-
     }
+
+    /**
+     * @param $found
+     * @return int
+     */
+    private function sommaArrayDiNumeri($found): int {
+        $result = 0;
+        foreach ($found[1] as $item) {
+            $result = $result + intval($item[0]);
+        }
+        return $result;
+    }
+
 }
