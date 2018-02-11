@@ -17,13 +17,8 @@ class Calculator {
 
     public function add($argomenti) {
         $result = null;
-        if (($argomenti == '')) {
-            $result = 0;
-        }
-        else {
-            preg_match_all('/(\d+)/', $argomenti, $found);
-            $result = $this->sommaArrayDiNumeri($found);
-        }
+        preg_match_all('/(\d+)/', $argomenti, $found);
+        $result = $this->sommaArrayDiNumeri($found);
         return $result;
     }
 
