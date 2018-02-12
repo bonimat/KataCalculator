@@ -17,21 +17,21 @@ class Calculator {
 
     public function add($argomenti) {
         $result = null;
-        preg_match_all('/(\d+)/', $argomenti, $found);
-        $result = $this->sommaArrayDiNumeri($found);
+        $addendi = explode(',', $argomenti );
+        $result = $this->sommaInteri($addendi);
         return $result;
     }
 
     /**
-     * @param $found
+     * @param $addendi
      * @return int
      */
-    private function sommaArrayDiNumeri($found): int {
-        $result = 0;
-        foreach ($found[1] as $item) {
-            $result = $result + intval($item[0]);
+    private function sommaInteri($addendi): int {
+        $somma = 0;
+        foreach ($addendi as $addendo) {
+            $somma = $somma + intval($addendo);
         }
-        return $result;
+        return $somma;
     }
 
 }

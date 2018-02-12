@@ -33,11 +33,12 @@ class CalculatorTest extends TestCase {
 
     public function testtSommaDueArgomenti(){
         $calcolatore = new Calculator();
-        $this->assertEquals( 3, $calcolatore->add("2,1"));
+        $this->assertEquals( 13, $calcolatore->add("2,11"));
     }
 
     public function testTreArgomenti(){
         $calcolatore = new Calculator();
         $this->assertEquals(6,$calcolatore->add("2,1,3"));
+
     }
 }
